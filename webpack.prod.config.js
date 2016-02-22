@@ -2,10 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
-    devtool: 'inline-source-map',
     entry: [
-        'webpack-dev-server/client?http://127.0.0.1:8080/',
-        'webpack/hot/only-dev-server',
         './src'
     ],
     output: {
@@ -31,28 +28,18 @@ module.exports = {
                 loader: 'raw'
             },
             {
-                test: /\.(woff|woff2|ttf|eot|svg)(\?]?.*)?$/,
-                loader : 'url?limit=10000'
-            },
-            {
                 test: /\.scss$/,
                 loaders: [
                     'style',
                     'css',
-                    'autoprefixer?browsers=last 3 version',
+                    'autoprefixer?browsers=last 3 versions',
                     'sass?outputStyle=expanded'
                 ]
+            },
+            {
+                test: /\.(woff2?|ttf|eot|svg)$/,
+                loader: 'url?limit=10000'
             }
         ]
-    },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
-    ],
-    devServer: {
-        hot: true,
-        proxy: {
-            '*': 'http://localhost:3000'
-        }
     }
 };

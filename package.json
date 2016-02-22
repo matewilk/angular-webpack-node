@@ -5,15 +5,20 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_PATH=$NODE_PATH:./src node server",
-    "dev": "npm start & webpack-dev-server --progress --colors"
+    "dev": "npm start & webpack-dev-server --progress --colors",
+    "build": "webpack --config webpack.prod.config.js"
   },
   "author": "Mateusz Wilk",
   "license": "ISC",
   "dependencies": {
     "angular": "^1.5.0",
+    "angular-animate": "^1.5.0",
+    "angular-aria": "^1.5.0",
+    "angular-material": "^1.0.5",
     "angular-ui-router": "^0.2.18",
     "body-parser": "^1.15.0",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "material-design-icons": "^2.2.0"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
